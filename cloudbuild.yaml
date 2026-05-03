@@ -44,7 +44,7 @@ steps:
       - "-c"
       - |
         URL=$(gcloud run services describe medlab-analyzer-report-service --region=${_REGION} --format='value(status.url)')
-        curl -f $URL/health || exit 1
+        curl -f $$URL/health || exit 1
         echo "report-service is healthy"
     waitFor: ["deploy"]
 
